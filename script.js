@@ -48,14 +48,3 @@ document.querySelectorAll(".sosmed i").forEach((sosmed) => {
     sosmed.classList.add("ph");
   });
 });
-
-// Background Animation
-const bgAnimation = document.getElementById('bgAnimation');
-
-const numberOfColorBoxes = 400;
-
-for (let i = 0; i < numberOfColorBoxes; i++) {
-    const colorBox = document.createElement('div');
-    colorBox.classList.add('colorBox');
-    bgAnimation.append(colorBox)
-}

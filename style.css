@@ -5,14 +5,15 @@
 }
 
 html {
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 
 body {
-  background-color: #191931;
   color: #e1e1f1;
   display: flex;
+  background: #111;
   flex-direction: column;
   align-items: center;
   font-family: "Outfit", sans-serif;
@@ -27,6 +28,16 @@ body {
   aspect-ratio: 1/1;
   object-fit: cover;
   object-position: top;
+  border-radius: 50%;
+  box-shadow: auto rgba(0, 0, 0, 1);
+}
+
+p {
+  color: white;
+}
+
+h1 {
+  color: white;
 }
 
 a {
@@ -43,7 +54,7 @@ a {
   position: center;
   padding: auto;
   font-size: 1.5rem;
-  color: #8787a3;
+  color: grey;
 }
 
 .sosmed i:hover {
@@ -84,7 +95,9 @@ ul.links li:not(:last-child) {
 }
 
 .link-card:hover {
-  border: 2px solid white;
+  box-shadow: 0 0 25px white;
+  border: 3px solid white;
+  transform: scale(1);
 }
 
 .links .link-icon {
@@ -106,7 +119,7 @@ ul.links li:not(:last-child) {
 }
 
 .link-action {
-  color: #8787a3;
+  color: grey;
   cursor: pointer;
   padding: 10px;
 }
@@ -117,14 +130,13 @@ ul.links li:not(:last-child) {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: #8787a3;
-  font-size: 0.75rem;
+  color: grey;
+  font-size: 1rem;
 }
 
 .copyright img {
   padding-top: 1rem;
-  width: 2rem;
-  opacity: 0.4;
+  width: 10rem;
 }
 
 #toast {
@@ -134,8 +146,8 @@ ul.links li:not(:last-child) {
 }
 
 .toast-container {
-  background-color: white;
-  color: #0f0f25;
+  background-color: black;
+  color: black;
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 1rem;
@@ -167,50 +179,77 @@ ul.links li:not(:last-child) {
 }
 
 /* Background Animation */
-.bgAnimation{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(20,1fr);
-  grid-template-rows: repeat(20,1fr);
-  background: #1d1d1d;
-  filter: saturate(2);
-  overflow: hidden;
+.wrapper span {
+  position: fixed;
+  bottom: -180px;
+  height: 50px;
+  width: 50px;
+  z-index: -1;
+  background-color: #18191f;
+  box-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
+    0 0 200px #0072ff;
+  animation: animate 10s linear infinite;
+  filter: blur(4px);
+}
+.wrapper span:nth-child(1) {
+  left: 60px;
+  animation-delay: 0.6s;
+}
+.wrapper span:nth-child(2) {
+  left: 10%;
+  animation-delay: 3s;
+  width: 60px;
+  height: 60px;
+}
+.wrapper span:nth-child(3) {
+  left: 20%;
+  animation-delay: 2s;
+}
+.wrapper span:nth-child(4) {
+  left: 30%;
+  animation-delay: 5s;
+  width: 80px;
+  height: 80px;
+}
+.wrapper span:nth-child(5) {
+  left: 40%;
+  animation-delay: 1s;
+}
+.wrapper span:nth-child(6) {
+  left: 50%;
+  animation-delay: 7s;
+}
+.wrapper span:nth-child(7) {
+  left: 60%;
+  animation-delay: 6s;
+  width: 100px;
+  height: 100px;
+}
+.wrapper span:nth-child(8) {
+  left: 70%;
+  animation-delay: 8s;
+}
+.wrapper span:nth-child(9) {
+  left: 80%;
+  animation-delay: 6s;
+  width: 90px;
+  height: 90px;
+}
+.wrapper span:nth-child(10) {
+  left: 90%;
+  animation-delay: 4s;
 }
 
-.colorBox{
-  z-index: 2;
-  filter: brightness(1.1);
-  transition: 2s ease;
-  position: relative;
-  margin: 2px;
-  background: #1d1d1d;
-}
-
-.colorBox:hover{
-  background: #00bfff;
-  transition-duration: 0s;
-}
-
-.backgroundAmim{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  background: #00bfff;
-  filter: blur(60px);
-  animation: animBack 6s linear infinite;
-}
-
-@keyframes animBack {
-  0%{
-      top: -60px;
+@keyframes animate {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  100%{
-      top: 120%;
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-800px) rotate(360deg);
+    opacity: 0;
   }
 }
